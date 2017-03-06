@@ -29,7 +29,7 @@ class UsersController < ApplicationController
       @user.avatar_url = @octokit_user.avatar_url
       @user.save
     rescue Octokit::NotFound
-      redirect_to home_path, notice: 'We could not find anyone with that handle on GitHub.' and return
+      redirect_to new_user_path, notice: 'We could not find anyone with that handle on GitHub.' and return
     end
 
     respond_to do |format|
