@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Users</h1>
+<h1>All Users</h1>
 
 <table>
   <thead>
@@ -17,11 +17,9 @@
     <% @users.each do |user| %>
       <tr>
         <td><%= image_tag user.avatar_url, style: "height: 50px;" %></td>
-        <td><%= user.handle %></td>
+        <td><%= link_to user.handle, user %></td>
         <td><%= user.name %></td>
         <td><%= user.company %></td>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
