@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th>Avatar</th>
       <th>Handle</th>
       <th>Name</th>
       <th>Company</th>
@@ -15,11 +16,11 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
+        <td><%= image_tag user.avatar_url, style: "height: 50px;" %></td>
         <td><%= user.handle %></td>
         <td><%= user.name %></td>
         <td><%= user.company %></td>
         <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
         <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
