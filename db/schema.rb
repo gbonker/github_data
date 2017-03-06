@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 20170302052447) do
     t.string   "handle"
     t.string   "name"
     t.string   "company"
+    t.string   "avatar_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
