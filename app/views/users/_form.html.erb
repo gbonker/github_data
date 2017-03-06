@@ -13,9 +13,7 @@
 
   <div class="field">
     <%= f.label :handle %><br>
-    <%= f.text_field :handle %>
+    <%= f.text_field :handle, class: "form-control", style: "max-width: 500px;" %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= f.submit "Create User", class: "btn btn-primary" %>
 <% end %>
