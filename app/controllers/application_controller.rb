@@ -4,4 +4,6 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   client = Octokit::Client.new(:access_token => "b3c169b89df2a2f15cf62d1438cda1f1ae89d5ed")
+  user = client.user
+  user.login
 end

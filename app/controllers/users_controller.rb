@@ -21,11 +21,16 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
-    @octokit_user = Octokit.user @user.handle
-    @user.name = @octokit_user.name
-    @user.company = @octokit_user.company
-    @user.avatar_url = @octokit_user.avatar_url
-    @user.save
+
+    begin
+      @octokit_user = Octokit.user @user.handle
+      @user.name = @octokit_user.name
+      @user.company = @octokit_user.company
+      @user.avatar_url = @octokit_user.avatar_url
+      @user.save
+    rescue Octokit::NotFound
+      redirect_to home_path, notice: 'We could not find anyone with that handle on GitHub.' and return
+    end
 
     respond_to do |format|
       if @user.save
